@@ -7,8 +7,6 @@ import bg.softuni.intro.cats.repositories.OwnerRepository;
 import bg.softuni.intro.cats.services.OwnerService;
 import org.springframework.stereotype.Service;
 
-import javax.xml.catalog.CatalogException;
-
 @Service
 public class OwnerServiceImpl implements OwnerService {
 
@@ -21,14 +19,12 @@ public class OwnerServiceImpl implements OwnerService {
     @Override
     public void createOwner(CreateOwnerDto createOwnerDto) {
 
-        OwnerEntity owner = new OwnerEntity();
-        owner.setOwnerName(createOwnerDto.getOwnerName());
+        OwnerEntity owner = new OwnerEntity().setOwnerName(createOwnerDto.getOwnerNameDto());
 
         createOwnerDto.getCatNames()
                 .forEach(name -> {
-                    CatEntity cat = new CatEntity();
-                    cat.setCatName(name);
-                    cat.setOwner(owner);
+                   CatEntity cat = new CatEntity().setCatName(name)
+                            .setOwner(owner);
                     owner.addCat(cat);
                 });
 

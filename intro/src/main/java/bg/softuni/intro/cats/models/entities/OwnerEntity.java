@@ -18,27 +18,21 @@ public class OwnerEntity {
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     private List<CatEntity> cats = new ArrayList<>();
 
-    public OwnerEntity() {
-    }
-
     public Long getOwnerId() {
         return ownerId;
     }
 
-    public void setOwnerId(Long ownerId) {
+    public OwnerEntity setOwnerId(Long ownerId) {
         this.ownerId = ownerId;
+        return this;
     }
 
     public String getOwnerName() {
         return ownerName;
     }
 
-    public void setOwnerName(String ownerName) {
+    public OwnerEntity setOwnerName(String ownerName) {
         this.ownerName = ownerName;
-    }
-
-    public OwnerEntity addCat(CatEntity cat) {
-        cats.add(cat);
         return this;
     }
 
@@ -46,7 +40,13 @@ public class OwnerEntity {
         return cats;
     }
 
-    public void setCats(List<CatEntity> cats) {
+    public OwnerEntity setCats(List<CatEntity> cats) {
         this.cats = cats;
+        return this;
+    }
+
+    public OwnerEntity addCat(CatEntity cat) {
+        cats.add(cat);
+        return this;
     }
 }

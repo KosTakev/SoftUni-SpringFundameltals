@@ -17,28 +17,30 @@ public class CatEntity {
     private OwnerEntity owner;
 
 
-
     public Long getCatId() {
         return catId;
     }
 
-    public void setCatId(Long catId) {
+    public CatEntity setCatId(Long catId) {
         this.catId = catId;
+        return this;
     }
 
     public String getCatName() {
         return catName;
     }
 
-    public void setCatName(String catName) {
+    public CatEntity setCatName(String catName) {
         this.catName = catName;
+        return this;
     }
 
     public OwnerEntity getOwner() {
         return owner;
     }
 
-    public void setOwner(OwnerEntity owner) {
+    public CatEntity setOwner(OwnerEntity owner) {
         this.owner = owner;
+        return this;
     }
 }

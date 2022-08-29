@@ -19,8 +19,10 @@ public class CatsDemo implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        CreateOwnerDto createOwnerDto = new CreateOwnerDto();
-        ownerService.createOwner(CreateOwnerDto createOwnerDto.
-                setOwnerName("Pesho").setCatNames(List.of("")));
+
+        CreateOwnerDto ownerDto = new CreateOwnerDto();
+        ownerService.createOwner(new CreateOwnerDto()
+                .setOwnerNameDto("Pesho")
+                .setCatNames(List.of("Jaccky, Tommy, Cat")));
     }
 }
