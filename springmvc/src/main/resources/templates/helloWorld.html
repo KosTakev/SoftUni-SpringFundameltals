@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en">
+<html lang="en"
+    xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -8,6 +9,10 @@
     <title>Document</title>
 </head>
 <body>
-<h1> Hello World! </h1>
+
+    <h1> Hello World! </h1>
+    The number you passed to me is
+    <span th:text="${num}">Number</span>
+
 </body>
 </html>
