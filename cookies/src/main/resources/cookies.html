@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Cookies</title>
 </head>
 <body>
 
-Preferred language: <span th:value="${lang}">English</span>
+Preferred language: <span th:value="${lang}">English</span></br>
 
+<form
+    th:action="@{/cookies}"
+    method="post">
 <select
     id="lang"
     name="lang">
-    <option value="en" text="en"/>
-    <option value="de" text="de"/>
+    <option value="en">English</option>
+    <option value="de">Deutsch</option>
+    <input type="submit" value="Submit preference"/>
 </select>
+</form>
 </body>
 </html>
