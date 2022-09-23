@@ -14,8 +14,8 @@ Preferred language: <span th:value="${lang}">English</span></br>
 <select
     id="lang"
     name="lang">
-    <option value="en">English</option>
-    <option value="de">Deutsch</option>
+    <option value="en" th:selected="(${lang} == 'en')">English</option>
+    <option value="de" th:selected="(${lang} == 'de')" >Deutsch</option>
     <input type="submit" value="Submit preference"/>
 </select>
 </form>

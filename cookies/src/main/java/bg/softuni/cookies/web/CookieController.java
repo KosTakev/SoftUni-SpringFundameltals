@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 public class CookieController {
 
@@ -20,7 +23,10 @@ public class CookieController {
     }
 
     @PostMapping("/cookies")
-    public String submitCookies(@RequestParam String lang) {
+    public String submitCookies(@RequestParam String lang,
+                                HttpServletResponse response) {
+        Cookie langCookie = new Cookie("lang", lang);
+        response.addCookie(langCookie);
         return "redirect:/cookies";
     }
 }
