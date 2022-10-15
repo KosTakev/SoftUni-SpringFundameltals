@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Session</title>
 </head>
 <body>
-$END$
+
+Preferred language: <span th:text="${lang}">English</span><br/>
+
+<form
+        th:action="@{/session}"
+        method="post">
+    <select
+            id="lang"
+            name="lang">
+        <option value="en" th:selected="(${lang} == 'en')">English</option>
+        <option value="de" th:selected="(${lang} == 'de')">Deutsch</option>
+        <option value="bg" th:selected="(${lang} == 'bg')">Български</option>
+        <input type="submit" value="Submit preference"/>
+    </select>
+</form>
 </body>
 </html>
