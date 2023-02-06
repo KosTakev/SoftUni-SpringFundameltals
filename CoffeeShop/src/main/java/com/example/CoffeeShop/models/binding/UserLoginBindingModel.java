@@ -1,8 +1,8 @@
-package com.example.CoffeeShop.models.biding;
+package com.example.CoffeeShop.models.binding;
 
 import javax.validation.constraints.Size;
 
-public class UserLoginBidingModel {
+public class UserLoginBindingModel {
 
     @Size(min = 5, max = 20)
     private String username;
@@ -10,14 +10,14 @@ public class UserLoginBidingModel {
     @Size(min = 3)
     private String password;
 
-    public UserLoginBidingModel() {
+    public UserLoginBindingModel() {
     }
 
     public String getUsername() {
         return username;
     }
 
-    public UserLoginBidingModel setUsername(String username) {
+    public UserLoginBindingModel setUsername(String username) {
         this.username = username;
         return this;
     }
@@ -26,7 +26,7 @@ public class UserLoginBidingModel {
         return password;
     }
 
-    public UserLoginBidingModel setPassword(String password) {
+    public UserLoginBindingModel setPassword(String password) {
         this.password = password;
         return this;
     }

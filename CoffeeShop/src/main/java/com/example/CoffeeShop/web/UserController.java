@@ -1,7 +1,7 @@
 package com.example.CoffeeShop.web;
 
-import com.example.CoffeeShop.models.biding.UserLoginBidingModel;
-import com.example.CoffeeShop.models.biding.UserRegisterBidingModel;
+import com.example.CoffeeShop.models.binding.UserLoginBindingModel;
+import com.example.CoffeeShop.models.binding.UserRegisterBindingModel;
 import com.example.CoffeeShop.models.service.UserServiceModel;
 import com.example.CoffeeShop.service.UserService;
 import org.modelmapper.ModelMapper;
@@ -34,20 +34,20 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String registerConfirm(@Valid UserRegisterBidingModel userRegisterBidingModel,
+    public String registerConfirm(@Valid UserRegisterBindingModel userRegisterBindingModel,
                                   BindingResult bindingResult,
                                   RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors() ||
-                !userRegisterBidingModel.getPassword().equals(userRegisterBidingModel.getConfirmPassword())) {
+                !userRegisterBindingModel.getPassword().equals(userRegisterBindingModel.getConfirmPassword())) {
 
-            redirectAttributes.addFlashAttribute("userRegisterBidingModel", userRegisterBidingModel);
+            redirectAttributes.addFlashAttribute("userRegisterBindingModel", userRegisterBindingModel);
             redirectAttributes.addFlashAttribute(
-                    "org.springframework.validation.BindingResult.userRegisterBidingModel", bindingResult);
+                    "org.springframework.validation.BindingResult.userRegisterBindingModel", bindingResult);
 
             return "redirect:register";
         }
         userService.registerUser(modelMapper
-                .map(userRegisterBidingModel, UserServiceModel.class));
+                .map(userRegisterBindingModel, UserServiceModel.class));
 
         return "redirect:login";
     }
@@ -62,40 +62,40 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String loginConfirm(@Valid UserLoginBidingModel userLoginBidingModel,
+    public String loginConfirm(@Valid UserLoginBindingModel userLoginBindingModel,
                                BindingResult bindingResult,
                                RedirectAttributes redirectAttributes) {
 
         if (bindingResult.hasErrors()) {
-            redirectAttributes.addFlashAttribute("userLoginBidingModel", userLoginBidingModel);
+            redirectAttributes.addFlashAttribute("userLoginBindingModel", userLoginBindingModel);
             redirectAttributes.addFlashAttribute(
-                    "org.springframework.validation.BindingResult.userLoginBidingModel",
+                    "org.springframework.validation.BindingResult.userLoginBindingModel",
                     bindingResult);
             return "redirect:login";
         }
 
-        UserServiceModel userServiceModel = userService.findByUsernameAndPassword(userLoginBidingModel.getUsername(),
-                userLoginBidingModel.getPassword());
+        UserServiceModel userServiceModel = userService.findByUsernameAndPassword(userLoginBindingModel.getUsername(),
+                userLoginBindingModel.getPassword());
 
         if (userServiceModel == null) {
-            redirectAttributes.addFlashAttribute("userLoginBidingModel", userLoginBidingModel);
+            redirectAttributes.addFlashAttribute("userLoginBidingModel", userLoginBindingModel);
             redirectAttributes.addFlashAttribute("isFound", false);
             return "redirect:login";
         }
 
-        userService.loginUser(userServiceModel.getId(), userLoginBidingModel.getUsername());
+        userService.loginUser(userServiceModel.getId(), userLoginBindingModel.getUsername());
 
         return "redirect:/";
     }
 
     @ModelAttribute
-    public UserRegisterBidingModel userRegisterBidingModel() {
-        return new UserRegisterBidingModel();
+    public UserRegisterBindingModel userRegisterBindingModel() {
+        return new UserRegisterBindingModel();
         //Same as to do an if(model.containsAttribute(bidingModel) statement in register() to check if there isn't added bidingModel earlier
     }
 
     @ModelAttribute
-    public UserLoginBidingModel userLoginBidingModel() {
-        return new UserLoginBidingModel();
+    public UserLoginBindingModel userLoginBindingModel() {
+        return new UserLoginBindingModel();
     }
 }

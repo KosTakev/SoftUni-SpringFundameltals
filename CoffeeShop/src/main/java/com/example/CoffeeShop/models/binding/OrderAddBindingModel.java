@@ -1,4 +1,4 @@
-package com.example.CoffeeShop.models.biding;
+package com.example.CoffeeShop.models.binding;
 
 import com.example.CoffeeShop.models.CategoryNameEnum;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class OrderAddBidingModel {
+public class OrderAddBindingModel {
 
     @Size(min = 3, max = 20)
     private String name;
@@ -29,14 +29,14 @@ public class OrderAddBidingModel {
     @Size(min = 5)
     private String description;
 
-    public OrderAddBidingModel() {
+    public OrderAddBindingModel() {
     }
 
     public String getName() {
         return name;
     }
 
-    public OrderAddBidingModel setName(String name) {
+    public OrderAddBindingModel setName(String name) {
         this.name = name;
         return this;
     }
@@ -45,7 +45,7 @@ public class OrderAddBidingModel {
         return price;
     }
 
-    public OrderAddBidingModel setPrice(BigDecimal price) {
+    public OrderAddBindingModel setPrice(BigDecimal price) {
         this.price = price;
         return this;
     }
@@ -54,7 +54,7 @@ public class OrderAddBidingModel {
         return orderTime;
     }
 
-    public OrderAddBidingModel setOrderTime(LocalDateTime orderTime) {
+    public OrderAddBindingModel setOrderTime(LocalDateTime orderTime) {
         this.orderTime = orderTime;
         return this;
     }
@@ -63,7 +63,7 @@ public class OrderAddBidingModel {
         return category;
     }
 
-    public OrderAddBidingModel setCategory(CategoryNameEnum category) {
+    public OrderAddBindingModel setCategory(CategoryNameEnum category) {
         this.category = category;
         return this;
     }
@@ -72,7 +72,7 @@ public class OrderAddBidingModel {
         return description;
     }
 
-    public OrderAddBidingModel setDescription(String description) {
+    public OrderAddBindingModel setDescription(String description) {
         this.description = description;
         return this;
     }

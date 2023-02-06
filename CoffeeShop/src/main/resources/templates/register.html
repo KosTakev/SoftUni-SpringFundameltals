@@ -1,15 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-
-<head th:fragment="head">
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Coffee Shop Application</title>
-    <link rel="stylesheet" href="/css/reset-css.css"/>
-    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/css/style.css"/>
-</head>
+<head th:replace="fragments/commons::head"></head>
 <body class="bg-secondary">
 <header th:replace="fragments/commons::nav">
 </header>
@@ -21,7 +13,7 @@
                     Register</strong></h1>
         </div>
         <div class="container bg-blur rounded p-5 mt-5 w-75">
-            <form th:action="@{/users/register}" th:method="post" th:object="${userRegisterBidingModel}"
+            <form th:action="@{/users/register}" th:method="post" th:object="${userRegisterBindingModel}"
                   class=" text-center text-light">
                 <div class="form-group row">
                     <label for="username" class="col-sm-2 col-form-label">Username</label>

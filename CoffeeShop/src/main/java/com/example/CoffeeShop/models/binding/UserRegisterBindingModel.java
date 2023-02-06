@@ -1,9 +1,9 @@
-package com.example.CoffeeShop.models.biding;
+package com.example.CoffeeShop.models.binding;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
-public class UserRegisterBidingModel {
+public class UserRegisterBindingModel {
 
     @Size(min = 5, max = 20)
     private String username;
@@ -22,14 +22,14 @@ public class UserRegisterBidingModel {
     @Size(min = 3)
     private String confirmPassword;
 
-    public UserRegisterBidingModel() {
+    public UserRegisterBindingModel() {
     }
 
     public String getUsername() {
         return username;
     }
 
-    public UserRegisterBidingModel setUsername(String username) {
+    public UserRegisterBindingModel setUsername(String username) {
         this.username = username;
         return this;
     }
@@ -38,7 +38,7 @@ public class UserRegisterBidingModel {
         return firstName;
     }
 
-    public UserRegisterBidingModel setFirstName(String firstName) {
+    public UserRegisterBindingModel setFirstName(String firstName) {
         this.firstName = firstName;
         return this;
     }
@@ -47,7 +47,7 @@ public class UserRegisterBidingModel {
         return lastName;
     }
 
-    public UserRegisterBidingModel setLastName(String lastName) {
+    public UserRegisterBindingModel setLastName(String lastName) {
         this.lastName = lastName;
         return this;
     }
@@ -56,7 +56,7 @@ public class UserRegisterBidingModel {
         return email;
     }
 
-    public UserRegisterBidingModel setEmail(String email) {
+    public UserRegisterBindingModel setEmail(String email) {
         this.email = email;
         return this;
     }
@@ -65,7 +65,7 @@ public class UserRegisterBidingModel {
         return password;
     }
 
-    public UserRegisterBidingModel setPassword(String password) {
+    public UserRegisterBindingModel setPassword(String password) {
         this.password = password;
         return this;
     }
@@ -74,7 +74,7 @@ public class UserRegisterBidingModel {
         return confirmPassword;
     }
 
-    public UserRegisterBidingModel setConfirmPassword(String confirmPassword) {
+    public UserRegisterBindingModel setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
         return this;
     }

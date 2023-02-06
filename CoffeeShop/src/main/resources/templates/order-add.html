@@ -1,38 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Coffee Shop Application</title>
-    <link rel="stylesheet" href="/css/reset-css.css"/>
-    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/css/style.css"/>
-</head>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/commons::head"></head>
 <body class="bg-secondary">
-<header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-info rounded">
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Add Order</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Logout</a>
-                </li>
-            </ul>
-            <img width="50px" src="/images/coffee.png" alt="Coffee image">
-        </div>
-    </nav>
-</header>
+<header th:replace="fragments/commons::nav"></header>
 <main role="main" class="bg-secondary">
 
     <div class="jumbotron">
@@ -41,7 +12,7 @@
                 <strong class="bg-blur rounded border-left border-white pl-3 border-bottom">Add Order</strong></h1>
         </div>
         <div class="container bg-blur rounded p-5 mt-5 w-75">
-            <form action="/" method="POST"
+            <form th:action="@{/oreders/add}" th:method="post" th:object="${orderAddBindingModel}"
                   class=" text-center text-light">
                 <div class="form-group row">
                     <label for="name" class="col-sm-2 col-form-label">Name</label>
@@ -108,8 +79,7 @@
         </div>
     </div>
 </main>
-<footer class="container">
-    <p>&copy;SoftUni Spring Team 2021. All rights reserved.</p>
+<footer th:replace="fragments/commons::footer">
 </footer>
 </body>
 </html>
